@@ -43,7 +43,7 @@
          $crud = new grocery_CRUD();
          $crud->set_table('Visits');
          $crud -> columns('visit_ID','visit_date','visit_doctor','visit_FEV');
-        	$crud -> display_as('visit_ID','Visit ID');
+         $crud -> display_as('visit_ID','Visit ID');
 							
          $crud -> display_as('visit_date','Visit Date');
 							
