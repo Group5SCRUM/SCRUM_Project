@@ -49,7 +49,7 @@
 							
          $crud -> display_as('visit_doctor','Visit Doctor');
 							
-         $crud -> display_as('visit_FEV','FEV');
+         $crud -> display_as('visit_FEV','FEV');//NEED TO MULTI-VALUE FEV
          $output = $crud->render();
   
          $this->_example_output($output);        
