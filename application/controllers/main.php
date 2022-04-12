@@ -38,7 +38,7 @@
          $this->_example_output($output);        
      }
 		
-						public function Visits()
+     public function Visits() //PHP CODE FOR VISITS
      {
          $crud = new grocery_CRUD();
          $crud->set_table('Visits');
