@@ -37,6 +37,23 @@
   
          $this->_example_output($output);        
      }
+		
+						public function Visits()
+     {
+         $crud = new grocery_CRUD();
+         $crud->set_table('Visits');
+         $crud -> columns('visit_ID','visit_date','visit_doctor','visit_FEV');
+        	$crud -> display_as('visit_ID','Visit ID');
+							
+         $crud -> display_as('visit_date','Visit Date');
+							
+         $crud -> display_as('visit_doctor','Visit Doctor');
+							
+         $crud -> display_as('visit_FEV','FEV');
+         $output = $crud->render();
+  
+         $this->_example_output($output);        
+     }
 
      public function customers()
     {
