@@ -54,7 +54,36 @@
   
          $this->_example_output($output);        
      }
+     Public function patients ()
+     {
+	$crud = new grocery_CRUD();
+        $crud -> set_table('patients'); 
+        $crud -> set_subject('Patients');
+	$crud -> columns(p_firstName,p_lastName,p_gender, p_birthday, p_diabetes,p_otherconds,);
+	$crud -> display_as('p_firstName','Patient First Name');
+        $crud -> set_rules('p_firstName','Patient First Name','htmlspecialchars|required|min_length[2]|max_length[30]');
 
+        $crud -> display_as('p_lastName','Patient Last Name');
+        $crud -> set_rules('p_lastName','Patient Last Name','htmlspecialchars|required|min_length[2]|max_length[30]');
+
+	$crud -> display_as('p_birthday','Patient Birthday (mm/dd/yyy)');
+	$crud -> set_rules('p_birthday','Patient Birthday (mm/dd/yyy)','htmlspecialchars|required|min_length[10]|max_length[10]');
+	     
+	$crud -> display_as('p_gender', 'Patient Gender');
+	$crud->field_type('p_gender','dropdown', array('1' => 'Male', '2' => 'Female', '3' => 'Prefer not to say''));
+
+	$crud -> display_as('p_diabetes', 'Diabetes');
+	$crud->field_type('p_diabetes','dropdown', array('1' => 'No', '2' => 'Type I', '3' => 'Type II''));
+	
+	$crud -> display_as('p_otherconds', 'Other Conditions');
+
+	$crud->unset_delete();
+        $crud->unset_clone();
+
+        $output = $crud->render();
+        $output -> title = "Patients";
+        $this->_example_output($output);
+     }
      public function customers()
     {
         $crud = new grocery_CRUD();
@@ -76,7 +105,8 @@
         $crud -> unset_clone();
         $output = $crud->render();
         $output -> title = "Customers";
-        $this->_example_output($output);        
+        $this->_example_output($output);
+	  
     }
   
      function _example_output($output = null)
